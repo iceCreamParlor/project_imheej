@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <!-- Materialize Icon -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo"><img src="{% static 'logo.png' %}" style="padding:10px"></a>
+      
+      
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="/merchants_area">Merchants Area<i class="material-icons">credit_card</i></a></li>
+        <li class="divider"></li>
+        <li><a href="/vendors_area">Vendors Area<i class="material-icons">shopping_cart</i></a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/consumer/">Consumer</a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown1">BUSINESS WITH HeyCASh</a></li>
+      </ul>
+      
+      <ul id="dropdown2" class="dropdown-content">
+      <li><a href="/merchants_area">Merchants Area<i class="material-icons">credit_card</i></a></li>
+      <li><a href="/vendors_area">Vendors Area<i class="material-icons">shopping_cart</i></a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="/consumer/">Consumer<i class="material-icons">face</i></a></li>
+        <li><a class="dropdown-button" href="#!" data-activates="dropdown2">BUSINESS WITH HeyCASh<i class="material-icons right">arrow_drop_down</i></a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+    {% block content %}{% endblock %}
+    
+      <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+</body>
+</html>
