@@ -1,0 +1,26 @@
+{% extends "mypage/layout.html"  %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title  %}
+HeyCASh
+{% endblock  %}
+
+{%  block content %}
+<body>
+    <form class="" action="" method="POST">
+      {% csrf_token %}
+
+      <input type="submit" name="" value="Submit">
+      {{ form | crispy }}
+    </form>
+
+<hr>
+    {% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p><br/>
+    <p>{{ post.created_at }}</p><br/>
+        
+    {% endfor %}
+</body>
+{% endblock  %}
