@@ -1,7 +1,11 @@
 from __future__ import unicode_literals
 from django.contrib import admin
-
 from django.db import models
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+
+
 
 
 class Post(models.Model):
