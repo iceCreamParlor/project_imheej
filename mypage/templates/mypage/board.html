@@ -8,19 +8,34 @@ HeyCASh
 
 {%  block content %}
 <body>
+  <div class="row"></div>
+  <div class="container">
     <form class="" action="/board/" method="POST">
       {% csrf_token %}
 
-      <input type="submit" name="" value="Submit">
+      
       {{ form | crispy }}
+      <input type="submit" name="" value="Submit">
     </form>
+  </div>
+  <div class = "container">
+   <table>
+      <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+        </tr>
+      </thead>
 
-    <hr>
-        {% for post in posts reversed%}
-        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
-        <p>{{ post.created_at }}</p><br/>
-    <hr>
-  
-    {% endfor %}
+      <tbody>
+      {% for post in posts reversed%}
+        <tr>
+          <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+          <td>{{ post.created_at }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
 </body>
 {% endblock  %}

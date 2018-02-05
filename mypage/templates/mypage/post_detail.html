@@ -8,14 +8,24 @@ HeyCASh
 
 {%  block content %}
 <body>
-    <div class="post">
-        {% if post.created_at %}
-            <div class="date">
-                {{ post.created_at }}
+  <div class="post">
+    <div class = "container">
+      
+      <div class="row" style="padding-top:40px">
+        <div class="col s12 m7">
+          <div class="card">
+            <div class="card-title"> {{ post.title }} </div>
+            <div class="card-content">
+              <p>{{ post.content|linebreaksbr }}</p>
+              <p>{{ post.created_at }}</p>
             </div>
-        {% endif %}
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.content|linebreaksbr }}</p>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
 {% endblock  %}
