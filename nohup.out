@@ -1,0 +1,25 @@
+[05/Feb/2018 10:45:14] "GET / HTTP/1.1" 200 9199
+[05/Feb/2018 10:45:14] "GET /static/css/style.css HTTP/1.1" 200 894
+[05/Feb/2018 10:45:14] "GET /static/css/materialize.css HTTP/1.1" 200 191919
+[05/Feb/2018 10:45:14] "GET /static/js/materialize.js HTTP/1.1" 200 367637
+[05/Feb/2018 10:45:14] "GET /static/js/init.js HTTP/1.1" 200 177
+[05/Feb/2018 10:45:14] "GET /static/fonts/roboto/Roboto-Medium.woff2 HTTP/1.1" 200 65412
+[05/Feb/2018 10:45:14] "GET /static/fonts/roboto/Roboto-Regular.woff2 HTTP/1.1" 200 64832
+[05/Feb/2018 10:45:14] "GET /static/fonts/roboto/Roboto-Light.woff2 HTTP/1.1" 200 64268
+[05/Feb/2018 10:45:15] "GET /static/ipad.png HTTP/1.1" 200 6748
+[05/Feb/2018 10:45:15] "GET /static/logo.png HTTP/1.1" 200 4152
+[05/Feb/2018 10:45:15] "GET /static/order.png HTTP/1.1" 200 4606
+[05/Feb/2018 10:45:15] "GET /static/alba.png HTTP/1.1" 200 3073
+[05/Feb/2018 10:45:15] "GET /static/background.png HTTP/1.1" 200 8016
+[05/Feb/2018 10:45:15] "GET /static/convenience.png HTTP/1.1" 200 5072
+[05/Feb/2018 10:45:15] "GET /static/background3.jpg HTTP/1.1" 200 176006
+[05/Feb/2018 10:45:15] "GET /static/cat.jpg HTTP/1.1" 200 1783477
+Not Found: /favicon.ico
+[05/Feb/2018 10:45:15] "GET /favicon.ico HTTP/1.1" 404 2947
+[05/Feb/2018 10:45:17] "GET /admin HTTP/1.1" 301 0
+[05/Feb/2018 10:45:18] "GET /admin/ HTTP/1.1" 200 6293
+[05/Feb/2018 10:45:18] "GET /static/admin/css/dashboard.css HTTP/1.1" 404 1685
+[05/Feb/2018 10:45:18] "GET /static/admin/css/base.css HTTP/1.1" 404 1670
+[05/Feb/2018 10:45:20] "GET /admin/logout/ HTTP/1.1" 200 1014
+[05/Feb/2018 10:45:20] "GET /static/admin/css/base.css HTTP/1.1" 404 1670
+[05/Feb/2018 10:45:23] "GET / HTTP/1.1" 200 9199
