@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^merchants_area/', views.merchants_area),
     url(r'^vendors_area/', views.vendors_area),
     url(r'^board/', views.board),
+    url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
 ]

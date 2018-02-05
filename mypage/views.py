@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib import admin
 from .forms import PostForm
 from .models import Post
+from django.shortcuts import render, get_object_or_404
 # Create your views here.
 def index(request):
     return render(request, 'mypage/index.html')
@@ -37,3 +38,7 @@ def board(request):
       
 
     return render(request, 'mypage/board.html', context)
+    
+def post_detail(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'mypage/post_detail.html', {'post': post})
