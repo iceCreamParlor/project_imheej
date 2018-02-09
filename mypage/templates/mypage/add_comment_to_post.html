@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block title  %}
-HeyCASh
+댓글쓰기 !
 {% endblock  %}
 
 {%  block content %}
@@ -14,11 +14,10 @@ HeyCASh
             
             <ul class="collapsible" data-collapsible="accordion">
                 <li>
-                  <div class="collapsible-header">
+                  <div class="collapsible-header" onclick="Materialize.toast('이름과 내용을 쓰고 확인을 눌러주세요 !',4000)">
                     <i class="material-icons">filter_drama</i>
                     이곳을 눌러주세요!
                   </div>
-                  <div class="collapsible-body"><p>작성자 이름과 댓글을 입력하고 확인 버튼을 눌러주세요 !</p></div>
                 </li>
               </ul>
             

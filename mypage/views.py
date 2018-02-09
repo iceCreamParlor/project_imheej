@@ -46,7 +46,7 @@ def index(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            '''post.author = request.user'''
             post.save()
             return render(request, 'mypage/index.html')
     else:
@@ -93,7 +93,7 @@ def board(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.author = request.user
+            '''post.author = request.user'''
             post.save()
             return render(request, 'mypage/index.html')
     else:

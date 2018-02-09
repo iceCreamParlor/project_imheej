@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 
 {% block title  %}
-HeyCASh
+?
 {% endblock  %}
 
 {%  block content %}
@@ -19,11 +19,10 @@ HeyCASh
       
       <ul class="collapsible" data-collapsible="accordion">
         <li>
-          <div class="collapsible-header">
+          <div class="collapsible-header" onclick="Materialize.toast('이름과 내용을 쓰고 확인을 눌러주세요. <br> 아래 게시물의 제목을 누르면 내용을 확인할 수도 있어요 !',4000)">
             <i class="material-icons">filter_drama</i>
             이곳을 눌러주세요!
           </div>
-          <div class="collapsible-body"><p>제목과 내용을 입력하고 버튼을 눌러주세요 !</p><p>아래 게시물 제목을 클릭하면 상세 내용을 확인할 수 있어요 !</p></div>
         </li>
       </ul>
       
@@ -40,7 +39,7 @@ HeyCASh
      <table>
         <thead>
           <tr>
-              <th>제목</th>
+              <th>작성자</th>
               <th>날짜</th>
           </tr>
         </thead>
@@ -48,8 +47,8 @@ HeyCASh
         <tbody>
         {% for post in posts reversed%}
           <tr>
-            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} ({{ post.comment_set.count }})</a></td>
-            <td>{{ post.created_at }}</td>
+            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.author }} ({{ post.comment_set.count }})</a></td>
+            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.created_at }}</a></td>
           </tr>
         {% endfor %}
         </tbody>
