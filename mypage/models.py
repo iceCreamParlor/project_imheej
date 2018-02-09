@@ -51,8 +51,8 @@ class Comment(models.Model):
         return self.message
         
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['author', 'title', 'created_at']
-    list_display_links = ['title']
+    list_display = ['author', 'content', 'created_at']
+    list_display_links = ['content']
     
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['author', 'message', 'created_at']
