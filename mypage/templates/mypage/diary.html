@@ -44,7 +44,7 @@ Diary
         {% for post in posts reversed%}
           <tr>
             <td><a href="{% url 'diary_detail' pk=post.pk %}">{{ post.title }} ({{ post.diarycomment_set.count }})</a></td>
-            <td>{{ post.created_at }}</td>
+            <td><a href="{% url 'diary_detail' pk=post.pk %}">{{ post.created_at }}</a></td>
           </tr>
         {% endfor %}
         </tbody>
