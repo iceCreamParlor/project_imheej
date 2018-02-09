@@ -9,4 +9,7 @@ urlpatterns = [
     url(r'^diary_detail/(?P<pk>\d+)/$', views.diary_detail, name='diary_detail'),
     url(r'^board/', views.board),
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
+    url(r'^post/(?P<pk>[0-9]+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
+    url(r'^diary_detail/(?P<pk>[0-9]+)/diarycomment/$', views.add_comment_to_diary, name='add_comment_to_diary'),
+
 ]

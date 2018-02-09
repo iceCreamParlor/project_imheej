@@ -48,7 +48,7 @@ HeyCASh
         <tbody>
         {% for post in posts reversed%}
           <tr>
-            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }} ({{ post.comment_set.count }})</a></td>
             <td>{{ post.created_at }}</td>
           </tr>
         {% endfor %}

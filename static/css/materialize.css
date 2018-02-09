@@ -4886,7 +4886,7 @@ small {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-  color: #ffab40;
+  color: #333333;
   margin-right: 24px;
   -webkit-transition: color .3s ease;
   transition: color .3s ease;
@@ -4900,7 +4900,7 @@ small {
 .card .card-reveal {
   padding: 24px;
   position: absolute;
-  background-color: transparent;
+  background-color: #ffffff;
   width: 100%;
   overflow-y: auto;
   left: 0;

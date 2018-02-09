@@ -1,12 +1,39 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.db import models
 from django.contrib import admin
-from .forms import PostForm, DiaryForm
+from .forms import PostForm, DiaryForm, CommentForm, DiaryCommentForm
 from .models import Post, Diary
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
+
+def add_comment_to_diary(request, pk):
+    post = get_object_or_404(Diary, pk=pk)
+    if request.method == "POST":
+        form = DiaryCommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('mypage.views.diary_detail', pk=post.pk)
+    else:
+        form = DiaryCommentForm()
+    return render(request, 'mypage/add_comment_to_diary.html', {'form': form})
+
+def add_comment_to_post(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('mypage.views.post_detail', pk=post.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'mypage/add_comment_to_post.html', {'form': form})
+
 def index(request):
     posts = Post.objects.all()
     form = PostForm()

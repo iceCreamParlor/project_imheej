@@ -12,7 +12,7 @@ Hello Heejae
 
 
 {%  block content %}
-<body>
+<body style="background-image:url(/static/background_transparent.jpg);">
   <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="row">
@@ -29,9 +29,6 @@ Hello Heejae
         <a href="/board"  type="button" id="clickme" class="btn-large waves-effect waves-light teal lighten-1" >글 쓰러가기</a>
       </div>
     </div>
-      
-    <div class="parallax"><img src="{% static 'background_transparent.jpg' %}" alt="Unsplashed background img 1"></div>
-
   </div>
   
 
@@ -40,15 +37,15 @@ Hello Heejae
         
         
         <div class="col s12 m2" >
-          <div class="card"style="width:100%;height:100%;">
+          <div class="card"style="width:100%;height:100%;background-color:transparent;">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="{% static 'cat.jpg' %}">
             </div>
-            <div class="card-content">
+            <div class="card-content" style="background-color:transparent;">
               <span class="card-title activator grey-text text-darken-4">imheej<i class="material-icons right">more_vert</i></span>
               <p><a href="/profile">프로필</a></p>
             </div>
-            <div class="card-reveal">
+            <div class="card-reveal" >
               <span class="card-title grey-text text-darken-4">imheej<i class="material-icons right">close</i></span>
               <p>안녕하세요 희재입니다.</p>
             </div>
@@ -111,7 +108,7 @@ Hello Heejae
         
         <div class="col s12 m2">
           <div class="container" style="width:100%;height:250px;">
-            <span class="new badge"style = "padding-bottom:20px;" ><b>한마디 남겨주세요. '아무거나'에 저장됩니다!</b></span>
+            <span class="new badge"style = "padding-bottom:20px;" ><b>한마디 남겨주세요. ' ? '에 저장됩니다!</b></span>
             <form class="" action="/board/" method="POST" style="padding-top:20px;">
               {% csrf_token %}
         

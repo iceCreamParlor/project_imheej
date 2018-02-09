@@ -1,0 +1,32 @@
+{% extends "mypage/layout.html"  %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title  %}
+HeyCASh
+{% endblock  %}
+
+{%  block content %}
+<body style="background-image:url(/static/background_transparent.jpg);">
+    <div class = "row" style="padding-top:40px">
+        <div class = "col s12 m3"></div>
+        <div class = "col s12 m6">
+            
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                  <div class="collapsible-header">
+                    <i class="material-icons">filter_drama</i>
+                    이곳을 눌러주세요!
+                  </div>
+                  <div class="collapsible-body"><p>작성자 이름과 댓글을 입력하고 확인 버튼을 눌러주세요 !</p></div>
+                </li>
+              </ul>
+            
+            <form method="POST" class="post-form">{% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="save btn btn-default"><i class="material-icons">border_color</i></button>
+            </form> 
+        </div>
+    </div>
+</body>
+{% endblock  %}
