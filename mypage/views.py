@@ -2,22 +2,57 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.db import models
 from django.contrib import admin
-from .forms import PostForm
-from .models import Post
+from .forms import PostForm, DiaryForm
+from .models import Post, Diary
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 def index(request):
-    return render(request, 'mypage/index.html')
+    posts = Post.objects.all()
+    form = PostForm()
+
+    context = {
+        'form' : form,
+        'posts' : posts,
+    }
+    if request.method == 'POST':
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return render(request, 'mypage/index.html')
+    else:
+      form = PostForm()
+      
+
+    return render(request, 'mypage/index.html', context)
+    #return render(request, 'mypage/index.html')
     
-def consumer(request):
-    return render(request, 'mypage/consumer.html')
+def profile(request):
+    return render(request, 'mypage/profile.html')
     
-def merchants_area(request):
-    return render(request, 'mypage/merchants_area.html')
+def diary(request):
+    posts = Diary.objects.all()
+    form = DiaryForm()
+
+    context = {
+        'form' : form,
+        'posts' : posts,
+    }
+    if request.method == 'POST':
+        form = DiaryForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return render(request, 'mypage/index.html')
+    else:
+      form = DiaryForm()
+      
+
+    return render(request, 'mypage/diary.html', context)
     
-def vendors_area(request):
-    return render(request, 'mypage/vendors_area.html')
     
 def board(request):
     posts = Post.objects.all()
@@ -43,3 +78,7 @@ def board(request):
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     return render(request, 'mypage/post_detail.html', {'post': post})
+
+def diary_detail(request, pk):
+    post = get_object_or_404(Diary, pk=pk)
+    return render(request, 'mypage/diary_detail.html', {'post': post})

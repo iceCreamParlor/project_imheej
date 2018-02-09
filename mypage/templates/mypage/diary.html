@@ -3,20 +3,14 @@
 {% load crispy_forms_tags %}
 
 {% block title  %}
-HeyCASh
+Diary
 {% endblock  %}
 
 {%  block content %}
-
-
-
 <body style="background-image:url(/static/background_transparent.jpg);">
-  
-  <div class="row" >
-  
-    <div class = "col s12 m3" ></div>
-    <div class = "col s12 m6" >
-      
+  <div class="row">
+    <div class="col s12 m3"></div>
+    <div class="col s12 m6">
       <ul class="collapsible" data-collapsible="accordion">
         <li>
           <div class="collapsible-header">
@@ -27,16 +21,16 @@ HeyCASh
         </li>
       </ul>
       
-      <form class="" action="/board/" method="POST">
-        {% csrf_token %}
-  
-        
-        {{ form | crispy }}
-        <button class="btn waves-effect waves-light" type="submit" name="" value="Submit" style="margin-right:20px;">
-          <i class="material-icons">border_color</i>
-        </button>
-      </form>
+    <form class="" action="/diary/" method="POST">
+      {% csrf_token %}
+
       
+      {{ form | crispy }}
+      <button class="btn waves-effect waves-light" type="submit" name="" value="Submit" style="margin-right:20px;">
+        <i class="material-icons">border_color</i>
+      </button>
+    </form>
+  
      <table>
         <thead>
           <tr>
@@ -48,17 +42,14 @@ HeyCASh
         <tbody>
         {% for post in posts reversed%}
           <tr>
-            <td><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+            <td><a href="{% url 'diary_detail' pk=post.pk %}">{{ post.title }}</a></td>
             <td>{{ post.created_at }}</td>
           </tr>
         {% endfor %}
         </tbody>
       </table>
+      
     </div>
-    
-    
-  
-    
   </div>
 </body>
 {% endblock  %}

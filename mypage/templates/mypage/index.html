@@ -2,9 +2,9 @@
 {% load staticfiles %}
 
 {% block title  %}
-HeyCASh
+Hello Heejae
 {% endblock  %}
-
+{% load crispy_forms_tags %}
 
 
 <script type="text/javascript", src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -30,68 +30,101 @@ HeyCASh
       </div>
     </div>
       
-    <div class="parallax"><img src="{% static 'background.JPG' %}" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="{% static 'background_transparent.jpg' %}" alt="Unsplashed background img 1"></div>
 
   </div>
   
 
 
-      <div class="row">
-        <div class="col s12 m4">
-          <div class="card">
+      <div class="row" style="padding-top:80px">
+        
+        
+        <div class="col s12 m2" >
+          <div class="card"style="width:100%;height:100%;">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="{% static 'cat.jpg' %}">
             </div>
             <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Our Story<i class="material-icons right">more_vert</i></span>
-              <p><a href="#ourstory">This is a link</a></p>
+              <span class="card-title activator grey-text text-darken-4">imheej<i class="material-icons right">more_vert</i></span>
+              <p><a href="/profile">프로필</a></p>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Our Story<i class="material-icons right">close</i></span>
-              <p>Heycash is a leading provider of Payment technologies and services, offering scalable solutions for companies of all sizes. Founded by a group of friends who started by scribbling their ideas on a piece of paper, today we offer smart, innovative services to dozens of clients worldwide.We built our solutions by closely learning our potential clientele and their expectations from our product. We know how to analyze this information and customize our offering to changing market needs. Why not join our fast growing customer base? Get in touch today to learn more about the Heycash story.</p>
+              <span class="card-title grey-text text-darken-4">imheej<i class="material-icons right">close</i></span>
+              <p>안녕하세요 희재입니다.</p>
             </div>
           </div>
         </div>
-
-        <div class="col s12 m4" id = "ourstory">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="{% static 'cat.jpg' %}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Our Story<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Our Story<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-          </div>
-        </div>
-
+        
+        
+        
+        <div class="col s12 m4"></div>
+        
+        
+         
+        
         <div class="col s12 m4">
-          <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="{% static 'cat.jpg' %}">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4">Our Story<i class="material-icons right">more_vert</i></span>
-              <p><a href="#">This is a link</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Our Story<i class="material-icons right">close</i></span>
-              <p>Here is some more information about this product that is only revealed once clicked on.</p>
-            </div>
-          </div>
-      </div>
-
+          <div id="player"></div>
+          <script>
+            /* global YT */
+            // 2. This code loads the IFrame Player API code asynchronously.
+            var tag = document.createElement('script');
+      
+            tag.src = "https://www.youtube.com/iframe_api";
+            var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      
+            // 3. This function creates an <iframe> (and YouTube player)
+            //    after the API code downloads.
+            var player;
+            function onYouTubeIframeAPIReady() {
+              player = new YT.Player('player', {
+                //height: '360',
+                width: '100%',
+                videoId: 'PG8oE2CaDvo',    // 동영상 바꾸고 싶을때 여기 바꾸면 됨
+                events: {
+                  'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
+                }
+              });
+            }
+      
+            // 4. The API will call this function when the video player is ready.
+            function onPlayerReady(event) {
+              //event.target.playVideo();
+            }
+      
+            // 5. The API calls this function when the player's state changes.
+            //    The function indicates that when playing a video (state=1),
+            //    the player should play for six seconds and then stop.
+            var done = false;
+            function onPlayerStateChange(event) {
+              if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 0000);
+                done = true;
+              }
+            }
+            function stopVideo() {
+              player.stopVideo();
+            }
+          </script>
+        </div>  
+        
+        <div class="col s12 m2">
+          <div class="container" style="width:100%;height:250px;">
+            <span class="new badge"style = "padding-bottom:20px;" ><b>한마디 남겨주세요. '아무거나'에 저장됩니다!</b></span>
+            <form class="" action="/board/" method="POST" style="padding-top:20px;">
+              {% csrf_token %}
+        
+              
+              {{ form | crispy }}
+              <button class="btn waves-effect waves-light" type="submit" name="" value="Submit" style="margin-right:20px;">
+                <i class="material-icons">border_color</i>
+              </button>
+            </form>
+          </div>  
+        </div>
     </div>
   </div>
-
-
-
-
-  
   </body>
 </html>
 {% endblock  %}

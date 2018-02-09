@@ -3,11 +3,18 @@ from django.contrib import admin
 from django.db import models
 
 
-
+class Diary(models.Model):
+    author = models.CharField(max_length=10)
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.title
 
 class Post(models.Model):
     author = models.CharField(max_length=10)
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=100)
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -31,3 +38,6 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ['author', 'message', 'created_at']
     list_display_links = ['message']
+
+class DiaryAdmin(admin.ModelAdmin):
+    list_display = ['author', 'title', 'created_at']

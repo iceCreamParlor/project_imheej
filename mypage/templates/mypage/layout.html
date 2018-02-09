@@ -5,8 +5,13 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>{% block title %}{% endblock %}</title>
-
-
+  
+  <!-- NAVER API  -->
+  <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=KXXdhvsDA9_DU3nmYGDn&callback=CALLBACK_FUNCTION"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
@@ -22,22 +27,16 @@
       
 
       <ul class="right hide-on-med-and-down">
-        <li><a href="/consumer/">Story</a></li>
-        <!--
-        <li><a href="/merchants_area">Merchants</a></li>
-        <li><a href="/vendors_area">Vendors</a></li>
-        -->
-        <li><a href="/board">Board</a></li>
+        <li><a href="/profile">프로필</a></li>
+        <li><a href="/diary">일상</a></li>
+        <li><a href="/board">아무거나</a></li>
       </ul>
       
 
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="/consumer">Story<i class="material-icons">face</i></a></li>
-        <!--
-        <li><a href="/merchants_area"><i class="material-icons">credit_card</i>Temp</a></li>
-        <li><a href="/vendors_area">For Vendors<i class="material-icons">shopping_cart</i></a></li>
-        -->
-        <li><a href="/board">Board</a></li>
+        <li><a href="/profile">프로필<i class="material-icons">face</i></a></li>
+        <li><a href="/diary">일상<i class="material-icons">audiotrack</i></a></li>
+        <li><a href="/board">아무거나<i class="material-icons">create</i></a></li>
       </ul>
       
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
