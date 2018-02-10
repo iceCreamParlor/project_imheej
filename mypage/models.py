@@ -10,7 +10,7 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     def __str__(self):
-        return self.title
+        return  "title : "+ self.title + "    "+ "date : " +  self.date.strftime("%Y-%m-%d %H:%M:%S")
 
 class Diary(models.Model):
     author = models.CharField(max_length=10)
@@ -72,3 +72,4 @@ class DiaryAdmin(admin.ModelAdmin):
     
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['title', 'date', 'content']
+    list_display_links = ['message', 'date']
