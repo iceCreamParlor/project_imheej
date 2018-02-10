@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.db import models
 from django.contrib import admin
 from .forms import PostForm, DiaryForm, CommentForm, DiaryCommentForm
-from .models import Post, Diary
+from .models import Post, Diary, Task
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -38,9 +38,12 @@ def index(request):
     posts = Post.objects.all()
     form = PostForm()
 
+    tasks = Task.objects.order_by('date').all()
+
     context = {
         'form' : form,
         'posts' : posts,
+        'tasks' : tasks,
     }
     if request.method == 'POST':
         form = PostForm(request.POST)

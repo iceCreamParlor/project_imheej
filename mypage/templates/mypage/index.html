@@ -37,24 +37,43 @@ imheej
         
         
         <div class="col s12 m2" >
-          <div class="card"style="width:100%;height:100%;background-color:transparent;">
+          <div class="card"style="width:100%;height:360px;background-color:transparent;">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="{% static 'cat.jpg' %}">
             </div>
             <div class="card-content" style="background-color:transparent;">
               <span class="card-title activator grey-text text-darken-4">imheej<i class="material-icons right">more_vert</i></span>
-              <p><a href="/profile">프로필</a></p>
+              <p><a href="/profile">프로필로 이동</a></p>
             </div>
             <div class="card-reveal" >
               <span class="card-title grey-text text-darken-4">imheej<i class="material-icons right">close</i></span>
-              <p>안녕하세요 희재입니다.</p>
+              <p>안녕하세요. 희재입니다. 동물과 컴퓨터와 빼빼로를 좋아해요. 하지만 요즘엔 꼬북칩도 좋아해요. Before Blooming 스타트업 팀에서 Heycash 서비스를 개발 중입니다. 찾으실 일이 있다면 '프로필로 이동'을 눌러 확인해주세요 !</p>
             </div>
           </div>
         </div>
         
         
         
-        <div class="col s12 m4"></div>
+        <div class="col s12 m3">
+          
+          <table>
+            <thead>
+              <tr>
+                  <th>스케줄 (클릭하세요 !)</th>
+                  <th>날짜</th>
+              </tr>
+            </thead>
+      
+            <tbody>
+            {% for task in tasks %}
+              <tr>
+                <td onclick="Materialize.toast('{{ task.content }}', 4000)">{{ task.title }}</td>
+                <td onclick="Materialize.toast('{{ task.content }}', 4000)">{{ task.date }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
         
         
          
@@ -106,9 +125,9 @@ imheej
           </script>
         </div>  
         
-        <div class="col s12 m2">
+        <div class="col s12 m3">
           <div class="container" style="width:100%;height:250px;">
-            <span class="new badge"style = "padding-bottom:20px;" ><b>한마디 남겨주세요. ' ? '에 저장됩니다!</b></span>
+            <span class="new badge"style = "padding-bottom:20px;" ><b>한마디 남겨주세요. ' 방명록 '에 저장됩니다!</b></span>
             <form class="" action="/board/" method="POST" style="padding-top:20px;">
               {% csrf_token %}
         

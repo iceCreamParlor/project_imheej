@@ -3,6 +3,15 @@ from django.contrib import admin
 from django.db import models
 
 
+class Task(models.Model):
+    title = models.CharField(max_length=100)
+    date = models.DateTimeField()
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    def __str__(self):
+        return self.title
+
 class Diary(models.Model):
     author = models.CharField(max_length=10)
     title = models.CharField(max_length=100)
@@ -60,3 +69,6 @@ class CommentAdmin(admin.ModelAdmin):
 
 class DiaryAdmin(admin.ModelAdmin):
     list_display = ['author', 'title', 'created_at']
+    
+class TaskAdmin(admin.ModelAdmin):
+    list_display = ['title', 'date', 'content']
